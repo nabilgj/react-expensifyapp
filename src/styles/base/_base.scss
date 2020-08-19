@@ -1,0 +1,23 @@
+// px rem
+
+html {
+  font-size: 62.5%;
+}
+
+body {
+  background-color: $darkBlue;
+  font-family: Helvetica, Arial, sans-serif;
+  font-size: $m-size;
+}
+
+button {
+  cursor: pointer;
+}
+
+button:focus {
+  outline: none;
+}
+
+button:disabled {
+  cursor: default;
+}
