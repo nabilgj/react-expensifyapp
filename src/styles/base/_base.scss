@@ -5,7 +5,6 @@ html {
 }
 
 body {
-  background-color: $darkBlue;
   font-family: Helvetica, Arial, sans-serif;
   font-size: $m-size;
 }
@@ -20,4 +19,8 @@ button:focus {
 
 button:disabled {
   cursor: default;
+}
+
+.is-active {
+  font-weight: bold;
 }

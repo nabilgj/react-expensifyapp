@@ -2,9 +2,52 @@
 
 import React from "react";
 import ReactDOM from "react-dom";
+import { Provider } from "react-redux";
+import AppRouter from "./routers/AppRouter";
+
 import "normalize.css/normalize.css";
 import "./styles/style.scss";
+import "react-dates/lib/css/_datepicker.css";
+import "react-dates/initialize";
 
-import IndecisionApp from "./components/IndecisionApp";
+import myStore from "./store/configureStore";
 
-ReactDOM.render(<IndecisionApp />, document.getElementById("app"));
+import { addExpense } from "./actions/expenses";
+import { setTextFilter } from "./actions/filters";
+
+import getVisibleExpenses from "./selectors/expenses";
+
+const store = myStore();
+
+store.dispatch(
+  addExpense({
+    description: "water bill",
+    amount: 4500,
+  })
+);
+
+store.dispatch(
+  addExpense({
+    description: "Gas bill",
+    createdAt: 1000,
+  })
+);
+
+store.dispatch(
+  addExpense({
+    description: "rent bill",
+    amount: 109500,
+  })
+);
+
+const state = store.getState();
+const visibleExpenses = getVisibleExpenses(state.expenses, state.filters);
+console.log("coming from app line 44", visibleExpenses);
+
+const jsx = (
+  <Provider store={store}>
+    <AppRouter />
+  </Provider>
+);
+
+ReactDOM.render(jsx, document.getElementById("app"));

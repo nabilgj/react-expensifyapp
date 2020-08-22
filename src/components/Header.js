@@ -1,17 +1,19 @@
 import React from "react";
 
-const Header = (props) => (
-  <div className="header">
-    <div className="container">
-      <h1 className="header__title">{props.title}</h1>
-      {props.subtitle && <h2 className="header__subtitle">{props.subtitle}</h2>}
-    </div>
-  </div>
+import { NavLink } from "react-router-dom";
+
+const Header = () => (
+  <header>
+    <h1> Expensify App</h1>
+    <NavLink to="/" activeClassName="is-active" exact>
+      Dashboard
+    </NavLink>
+    &nbsp;
+    <NavLink to="/create" activeClassName="is-active">
+      Create Expense
+    </NavLink>
+    &nbsp; &nbsp;
+  </header>
 );
 
-Header.defaultProps = {
-  title: "Indecisions App",
-};
-
-// go into app.js
 export default Header;
