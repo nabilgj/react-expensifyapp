@@ -1,7 +1,7 @@
-import moment from "moment";
+// import moment from "moment";
 
-const moment = require.requireActual("moment");
+const mymoment = require.requireActual("moment");
 
 export default (timestamp = 0) => {
-  return moment(timestamp);
+  return mymoment(timestamp);
 };
