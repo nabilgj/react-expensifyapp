@@ -56,8 +56,8 @@ class ExpenseListFilters extends React.Component {
 
         {/* date picker */}
         <DateRangePicker
-          startDate={this.props.filters.startDate}
-          endDate={this.props.filters.endDate}
+          startDateId={this.props.filters.startDate}
+          endDateId={this.props.filters.endDate}
           onDatesChange={this.onDatesChanged}
           focusedInput={this.state.calendarFocused}
           onFocusChange={this.onFocusedChanged}
